@@ -1,0 +1,13 @@
+reset;
+
+option solver "./gurobi";
+option gurobi_options "solnsens 1";
+
+model phase1.mod;
+data ms.dat;
+solve;
+
+display load;
+display profit;
+
+display demand_primary;

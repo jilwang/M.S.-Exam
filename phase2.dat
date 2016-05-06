@@ -1,0 +1,55 @@
+set cuts = "steak" "thin" "round" "chuck" "bone" "trim65" "trim85";
+set cuts_non_converted = "steak" "thin" "round" "chuck" "bone" "trim65";
+set cuts_non_85 = "bone" "steak" "trim85";
+set cuts_non_hotdog = "steak" "thin" "round" "chuck" "bone";
+set cuts_combine_85 = "steak" "round" "bone" "trim65" "trim85";
+
+set supweeks = 0 1 2 3 4;
+set weeks = 1 2 3 4;
+set subweeks = 2 3 4;
+
+set types = "primary" "secondary" "trim" "hotdog";
+set types_non_constraint = "primary" "trim" "hotdog";
+
+param yield := 
+	steak  3000
+	thin   2000
+	round  4000
+	chuck  4000
+	bone   1500
+	trim65 4000
+	trim85 5500;
+
+
+param primary_price :=
+	steak  11.00
+	thin   7.00
+	round  5.50
+	chuck  5.00
+	bone   3.25
+	trim65 2.75
+	trim85 4.00;
+
+param hotdog_price := 6.50;
+param hotdog_cost := 2.00;
+
+param processor_price := 0.50;
+
+param ground_minimum := 2000;
+param ground_price := 3.50;
+param ground_cost := 0.75;
+
+param freeze_cost := 4.00;
+param discount := 0.70;
+param pallet_cap := 1500;
+
+param weight_in_hotdog :=
+	steak  0
+	thin   0
+	round  0
+	chuck  0
+	bone   0
+	trim65 0.55
+	trim85 0.45;
+
+param purchase_cost := 90000;

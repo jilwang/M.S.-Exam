@@ -1,0 +1,19 @@
+reset;
+
+option solver "./gurobi";
+option gurobi_options "solnsens 1";
+
+#option presolve 0;
+#option solver "./cplex";
+#option cplex_options "sensitivity presolve = 0";
+#option relax "integrality 1";
+
+model cont.mod;
+data ms.dat;
+solve;
+
+display load;
+display singles;
+display profit;
+
+display demand_primary;

@@ -1,0 +1,33 @@
+reset;
+
+option solver "./gurobi";
+option solver_msg 0;
+option gurobi_options "solnsens 1";
+
+model phase2.mod;
+data phase2.dat;
+
+let primary_demand["steak"] := 4100;
+let primary_demand["thin"] := 700;
+let primary_demand["round"] := 2700;
+let primary_demand["chuck"] := 3000;
+let primary_demand["bone"] := 500;
+let primary_demand["trim65"] := 0;
+let primary_demand["trim85"] := 200;
+let hotdog_demand := 500;
+let processor_demand := 2000;
+let ground_demand := 3600;
+
+param dem;
+
+display "=============";
+for {r in 0..20} {
+	
+	let dem := 4100 - 200 * r;
+	let primary_demand["steak"] := dem;
+	display dem;
+	solve;
+	display load;
+	display profit;
+	#display demand_primary;
+}
